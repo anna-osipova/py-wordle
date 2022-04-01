@@ -9,8 +9,10 @@ flask = "*"
 sqlalchemy = "*"
 python-decouple = "*"
 psycopg2-binary = "*"
+alembic = "*"
 
 [dev-packages]
+autopep8 = "*"
 
 [requires]
 python_version = "3.9"

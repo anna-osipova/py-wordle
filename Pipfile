@@ -11,6 +11,8 @@ python-decouple = "*"
 psycopg2-binary = "*"
 alembic = "*"
 mypy = "*"
+graphene-sqlalchemy = "*"
+flask-graphql = "==2.0.1"
 
 [dev-packages]
 autopep8 = "*"

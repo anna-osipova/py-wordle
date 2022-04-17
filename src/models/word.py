@@ -1,5 +1,5 @@
 import sqlalchemy as sa
-from src.models.modelbase import ModelBase
+from models.modelbase import ModelBase
 
 
 class Word(ModelBase):

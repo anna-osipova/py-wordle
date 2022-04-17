@@ -22,4 +22,4 @@ def global_init() -> None:
             config('POSTGRES_DB')
         )
     )
-    factory = orm.sessionmaker(bind=engine)
+    factory = orm.scoped_session(orm.sessionmaker(autocommit=False, autoflush=False, bind=engine))

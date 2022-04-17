@@ -1,5 +1,4 @@
-import models.__all_models
-from models.modelbase import ModelBase
+from src.models.modelbase import ModelBase
 from logging.config import fileConfig
 import sys
 import os
@@ -38,7 +37,7 @@ config.set_section_option(
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-folder = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+folder = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
 sys.path.insert(0, folder)
 
 

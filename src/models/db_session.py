@@ -1,12 +1,11 @@
 import sqlalchemy as sa
 import sqlalchemy.orm as orm
-from models.modelbase import ModelBase
 from decouple import config
 
 factory = None
 
 
-def global_init():
+def global_init() -> None:
     global factory
 
     if factory:

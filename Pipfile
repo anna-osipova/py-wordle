@@ -10,6 +10,7 @@ sqlalchemy = "*"
 python-decouple = "*"
 psycopg2-binary = "*"
 alembic = "*"
+mypy = "*"
 
 [dev-packages]
 autopep8 = "*"

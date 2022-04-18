@@ -4,12 +4,10 @@ from flask_graphql import GraphQLView
 import models.db_session as db_session
 from schema.schema import schema
 
-db_session.global_init()
-
-session = db_session.factory()
-
 app = Flask(__name__)
 app.debug = True
+
+session = db_session.db_init()
 
 app.add_url_rule(
     '/graphql',

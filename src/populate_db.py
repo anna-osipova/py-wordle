@@ -1,9 +1,7 @@
 import models.db_session as db_session
 from models.word import Word
 
-db_session.global_init()
-
-session = db_session.factory()
+session = db_session.db_init()
 
 words_file = open('../simple_words_5.txt', 'r')
 for word_text in words_file.readlines():

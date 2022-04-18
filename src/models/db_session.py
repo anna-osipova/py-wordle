@@ -1,16 +1,10 @@
 import sqlalchemy as sa
 import sqlalchemy.orm as orm
 from decouple import config
+from sqlalchemy.orm import scoped_session
 
-factory = None
 
-
-def global_init() -> None:
-    global factory
-
-    if factory:
-        return
-
+def db_init() -> scoped_session:
     print(f"Connecting to database")
 
     engine = sa.create_engine(
@@ -22,4 +16,4 @@ def global_init() -> None:
             config('POSTGRES_DB')
         )
     )
-    factory = orm.scoped_session(orm.sessionmaker(autocommit=False, autoflush=False, bind=engine))
+    return orm.scoped_session(orm.sessionmaker(autocommit=False, autoflush=False, bind=engine))

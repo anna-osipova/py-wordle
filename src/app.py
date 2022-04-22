@@ -1,4 +1,6 @@
-from flask import Flask
+from typing import Optional
+
+from flask import Flask, g
 from flask_graphql import GraphQLView
 
 from models import db_session
@@ -8,6 +10,12 @@ app = Flask(__name__)
 app.debug = True
 
 session = db_session.db_init()
+
+
+@app.before_request
+def before_request() -> None:
+    g.session = session
+
 
 app.add_url_rule(
     '/graphql',

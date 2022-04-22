@@ -18,3 +18,5 @@ Run `docker-compose up -d database`
 Run: `alembic upgrade head`
 
 Create: `alembic revision --autogenerate -m "message"`
+
+Init new DB: `alembic -x data=true upgrade head`

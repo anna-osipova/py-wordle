@@ -1,4 +1,5 @@
-from src.models.modelbase import ModelBase
+from models.modelbase import ModelBase
+import models.__all_models
 from logging.config import fileConfig
 import sys
 import os
@@ -10,7 +11,7 @@ from decouple import config as dconfig
 from alembic import context
 
 
-def get_url():
+def get_url() -> str:
     return "postgresql://{}:{}@{}:{}/{}".format(
         dconfig('POSTGRES_USER'),
         dconfig('POSTGRES_PASSWORD'),
@@ -40,8 +41,8 @@ config.set_section_option(
 folder = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
 sys.path.insert(0, folder)
 
-
 target_metadata = ModelBase.metadata
+
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:

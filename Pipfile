@@ -13,6 +13,7 @@ alembic = "*"
 mypy = "*"
 graphene-sqlalchemy = "*"
 flask-graphql = "==2.0.1"
+flask-failsafe = "*"
 
 [dev-packages]
 autopep8 = "*"

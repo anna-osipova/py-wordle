@@ -1,5 +1,3 @@
-from typing import Optional
-
 from flask import Flask, g
 from flask_graphql import GraphQLView
 

@@ -4,6 +4,7 @@ from typing import List
 from flask import g
 
 from models.active_game import ActiveGame
+from models.guess import Guess
 from schema.types import Hint
 
 
@@ -16,12 +17,19 @@ class Color(Enum):
 def make_guess(guess: str, session_id: int) -> List[Hint]:
     game = g.session.query(ActiveGame).filter(ActiveGame.game_id == session_id).one()
 
+    # TODO: check if game is over
+    # TODO: check if guess word is a real word
     assert len(guess) == 5
     hints = []
 
     for index in range(5):
         color = get_letter_color(game.word, guess, index)
         hints.append(Hint(color, guess[index]))
+
+    guess = Guess(word=guess, game_id=session_id)
+    g.session.add(guess)
+    g.session.commit()
+
     return hints
 
 
@@ -33,4 +41,5 @@ def get_letter_color(word: str, guess: str, index: int) -> Color:
     if letter not in word:
         return Color.GREY
 
+    # TODO: improve yellow logic
     return Color.YELLOW

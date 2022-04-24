@@ -1,5 +1,13 @@
+from enum import Enum
+
 import sqlalchemy as sa
 from models.modelbase import ModelBase
+
+
+class Color(Enum):
+    GREY = 'GREY'
+    YELLOW = 'YELLOW'
+    GREEN = 'GREEN'
 
 
 class Guess(ModelBase):
